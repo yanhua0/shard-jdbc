@@ -4,9 +4,9 @@ spring:
     dataOne:
       type: com.alibaba.druid.pool.DruidDataSource
       druid:
-        driverClassName: com.mysql.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/shard_one?useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&useSSL=false
-        username: root
+        driverClassName: org.postgresql.Driver
+        url: jdbc:mysql://localhost:5432/shard_one?useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&useSSL=false
+        username: postgres
         password: 123456
         initial-size: 10
         max-active: 500

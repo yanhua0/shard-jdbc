@@ -25,16 +25,16 @@ public class ShardingDataSourceConfig {
     public DataSource dataSource () throws Exception {
         ShardingRuleConfiguration shardJdbcConfig = new ShardingRuleConfiguration();
         shardJdbcConfig.getTableRuleConfigs().add(getTableRule01());
-      // shardJdbcConfig.getTableRuleConfigs().add(getTableRule02());
+        // shardJdbcConfig.getTableRuleConfigs().add(getTableRule02());
         shardJdbcConfig.setDefaultDataSourceName("ds_0");
         Properties prop = new Properties();
-         prop.setProperty("sql.show","true");
+        prop.setProperty("sql.show","true");
         prop.put("executor.size","100");
         Map<String,DataSource> dataMap = new LinkedHashMap<>() ;
         String prefix="ds_";
         String data="shard_";
-        String url="jdbc:mysql://localhost:3306/%s?useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&useSSL=false";
-        for (int i = 0; i <DataSourceConstant.DATABASE_COUNT ; i++) {
+        String url="jdbc:postgresql://localhost:5432/%s";
+        for (int i = 0; i <DataSourceConstant.DATABASE_COUNT; i++) {
             String s=String.format(url,data+i);
             dataMap.put(prefix+i,shardJdbcCon.dataOneSource(s));
         }

@@ -1,42 +1,29 @@
-DELIMITER $$
+CREATE OR REPLACE FUNCTION public.create_table(
+  table_num_in integer)
+  RETURNS void
+  LANGUAGE 'plpgsql'
+
+  COST 100
+  VOLATILE
+AS $BODY$
+
+declare
+
+  v_idx integer := 0;
+  v_strTable varchar :='';
+  v_strSql varchar :='';
+begin
+  while v_idx < table_num_in loop
+
+    v_strTable = CONCAT('table_one_', v_idx);
+    v_strSql = 'create table '||v_strTable||'(id int8,phone varchar(20),back_one varchar(50),back_two varchar(50),back_three varchar(50));';
+    v_idx = v_idx+1;
+    EXECUTE v_strSql;
+  end loop;
+end
+$BODY$;
 
 
-
-DROP PROCEDURE IF EXISTS `pro_TableCreate`$$
-
-CREATE  PROCEDURE `pro_TableCreate`(
-)
-BEGIN
-  DECLARE i INT;
-  DECLARE table_name VARCHAR(20);
-  SET i = 0;
-
-  WHILE i<25 DO
-  #为了使表名成为xxx00这样的格式加的条件判断
-  IF i<10 THEN
-    SET table_name = CONCAT('table_one_',i);
-  ELSE
-    SET table_name = CONCAT('table_one_',i);
-  END IF;
-
-  SET @csql = CONCAT(
-      'CREATE TABLE ',table_name,'(
-id bigint  NOT NULL auto_increment COMMENT"主键ID",
-phone varchar(20) comment"注释",
-back_one varchar(50) comment"注释",
-back_two varchar(50) comment"注释",
-back_three varchar(50) comment"注释",
-
-PRIMARY KEY(id)
-)ENGINE=Innodb default charset=utf8;'
-    );
-
-  PREPARE create_stmt FROM @csql;
-  EXECUTE create_stmt;
-  SET i = i+1;
-  END WHILE;
-
-END$$
-DELIMITER ;
-call pro_TableCreate();
-#执行
+SELECT public.create_table(23);
+drop function public.create_table(
+  table_num_in integer);

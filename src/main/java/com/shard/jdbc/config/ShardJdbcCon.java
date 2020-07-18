@@ -36,8 +36,8 @@ public class ShardJdbcCon {
     private int minEvictableIdleTimeMillis1;
     @Value("${spring.datasource.dataOne.druid.max-evictable-idle-time-millis}")
     private int maxEvictableIdleTimeMillis1;
-    @Value("${spring.datasource.dataOne.druid.validation-query}")
-    private String validationQuery1;
+    //    @Value("${spring.datasource.dataOne.druid.validation-query}")
+//    private String validationQuery1;
     @Value("${spring.datasource.dataOne.druid.test-while-idle}")
     private boolean testWhileIdle1;
     @Value("${spring.datasource.dataOne.druid.test-on-borrow}")
@@ -60,7 +60,7 @@ public class ShardJdbcCon {
         datasource.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis1);
         datasource.setMinEvictableIdleTimeMillis(minEvictableIdleTimeMillis1);
         datasource.setMaxEvictableIdleTimeMillis(minEvictableIdleTimeMillis1);
-        datasource.setValidationQuery(validationQuery1);
+        // datasource.setValidationQuery(validationQuery1);
         datasource.setTestWhileIdle(testWhileIdle1);
         datasource.setTestOnBorrow(testOnBorrow1);
         datasource.setTestOnReturn(testOnReturn1);
@@ -69,5 +69,6 @@ public class ShardJdbcCon {
         datasource.setConnectionProperties(connectionProperties1);
         return datasource;
     }
+
 
 }

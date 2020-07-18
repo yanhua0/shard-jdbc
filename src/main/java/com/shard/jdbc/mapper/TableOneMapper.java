@@ -11,8 +11,6 @@ public interface TableOneMapper {
 
     TableOne selectOneByPhone(@Param("phone") String phone) ;
 
-
-
     int deleteByPrimaryKey(Integer id);
 
     int insert(TableOne record);
@@ -25,10 +23,6 @@ public interface TableOneMapper {
 
     TableOne selectByPrimaryKey(Integer id);
 
-
-    int updateByPrimaryKeySelective(TableOne record);
-
-    int updateByPrimaryKey(TableOne record);
 
     int selectCount();
 }
