@@ -1,7 +1,7 @@
 # 项目内容
 springboot整合数据库中间件shard-jdbc+mysql+pgsql
 # shard-jdbc官网介绍
-官网链接:https://shardingsphere.apache.org/
+官网链接:https://shardingsphere.apache.org/ 
 Apache ShardingSphere是一个开源生态系统，由一组分布式数据库中间件解决方案组成，其中包括JDBC，代理和Sidecar（计划）这3种独立产品。它们都提供数据分片，分布式事务和数据库编排功能，适用于各种情况，例如Java同构，异构语言和云原生。
 
 为了合理地利用分布式系统中数据库的计算和存储容量，ShardingSphere将自己定义为中间件，而不是全新的数据库类型。作为许多企业的基石，关系数据库仍然占据着巨大的市场份额。因此，在当前阶段，我们宁愿关注其增量而不是总的倾覆。
@@ -12,7 +12,7 @@ ShardingSphere于2020年4月16日成为Apache顶级项目。
 # 项目数据库名称命名
 shard_0,shard_1,shard_2,shard_3....
 # pgsql问题
-聚合函数查询: select count(*) AS num fron table_one_0;语句必须要使用别名。
+聚合函数查询: select count(*) AS num fron table_one_0;语句必须要使用别名。 
 官网介绍如下:
 使用SQLSever和PostgreSQL时，聚合列不加别名会抛异常？
 回答：
