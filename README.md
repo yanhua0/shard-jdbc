@@ -12,7 +12,7 @@ ShardingSphere于2020年4月16日成为Apache顶级项目。
 # 项目数据库名称命名
 shard_0,shard_1,shard_2,shard_3....
 # pgsql问题
-聚合函数查询: select count(*) AS num fron table_one_0;语句必须要使用别名。  
+聚合函数查询: select count(*) AS num from table_one_0;语句必须要使用别名。  
 官网介绍如下:
 使用SQLSever和PostgreSQL时，聚合列不加别名会抛异常？
 回答：
